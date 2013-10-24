@@ -24,7 +24,7 @@ under the License.
 		<groupId>org.apache.blur</groupId>
 		<artifactId>blur</artifactId>
 		<version>0.3.0-incubating-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+    <relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>org.apache.blur</groupId>
 	<artifactId>blur-store</artifactId>
@@ -38,6 +38,11 @@ under the License.
 			<artifactId>blur-util</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-core</artifactId>
+      <version>${hadoop.version}</version>
+    </dependency>
 		<dependency>
 			<groupId>org.apache.lucene</groupId>
 			<artifactId>lucene-core</artifactId>
@@ -104,13 +109,6 @@ under the License.
 			</exclusions>
 		</dependency>
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>libdir</id>
-			<url>file://${basedir}/../lib</url>
-		</repository>
-	</repositories>
 
 	<build>
 		<plugins>
