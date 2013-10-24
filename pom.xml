@@ -18,374 +18,142 @@ specific language governing permissions and limitations
 under the License.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.apache</groupId>
-		<artifactId>apache</artifactId>
-		<version>13</version>
-	</parent>
+  <parent>
+    <groupId>org.apache</groupId>
+    <artifactId>apache</artifactId>
+    <version>13</version>
+  </parent>
 
-	<groupId>org.apache.blur</groupId>
-	<artifactId>blur</artifactId>
-	<version>0.3.0-incubating-SNAPSHOT</version>
-	<packaging>pom</packaging>
+  <groupId>org.apache.blur</groupId>
+  <artifactId>blur</artifactId>
+  <version>0.3.0-incubating-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-	<name>Blur</name>
-	<description>Blur is a search platform capable of searching massive amounts of data in a cloud computing environment.</description>
-	<url>http://incubator.apache.org/blur/</url>
-	<inceptionYear>2012</inceptionYear>
+  <name>Blur</name>
+  <description>Blur is a search platform capable of searching massive amounts of data in a cloud computing environment.</description>
 
-	<distributionManagement>
-		<site>
-			<id>${project.artifactId}</id>
-			<url>http://incubator.apache.org/blur</url>
-		</site>
-		<downloadUrl>http://www.apache.org/dist/incubator/blur</downloadUrl>
-	</distributionManagement>
+  <modules>
+    <module>blur-store</module>
+    <module>blur-util</module>
+  </modules>
 
-	<developers>
-		<developer>
-			<id>twilliams</id>
-			<name>Tim Williams</name>
-			<email>twilliams@apache.org</email>
-			<roles>
-				<role>mentor</role>
-				<role>committer</role>
-			</roles>
-		</developer>
-		<developer>
-			<id>phunt</id>
-			<name>Patrick Hunt</name>
-			<email>phunt@apache.org</email>
-			<roles>
-				<role>mentor</role>
-				<role>committer</role>
-			</roles>
-		</developer>
-		<developer>
-			<id>cutting</id>
-			<name>Doug Cutting</name>
-			<email>cutting@apache.org</email>
-			<roles>
-				<role>mentor</role>
-				<role>committer</role>
-			</roles>
-		</developer>
-		<developer>
-			<id>amccurry</id>
-			<name>Aaron McCurry</name>
-			<email>amccurry@apache.org</email>
-			<roles>
-				<role>committer</role>
-			</roles>
-		</developer>
-		<developer>
-			<id>sleberkn</id>
-			<name>Scott Leberknight</name>
-			<email>sleberkn@apache.org</email>
-			<roles>
-				<role>committer</role>
-			</roles>
-		</developer>
-		<developer>
-			<id>rgimmy</id>
-			<name>Ryan Gimmy</name>
-			<email>rgimmy@apache.org</email>
-			<roles>
-				<role>committer</role>
-			</roles>
-		</developer>
-		<developer>
-			<id>gagz</id>
-			<name>Gagan Juneja</name>
-			<email>gagz@apache.org</email>
-			<roles>
-				<role>committer</role>
-			</roles>
-		</developer>
-		<developer>
-			<id></id>
-			<name>Rahul Challapalli</name>
-			<email>@apache.org</email>
-			<roles>
-				<role>committer</role>
-			</roles>
-		</developer>
-		<developer>
-			<id></id>
-			<name>Chris Rohr</name>
-			<email>@apache.org</email>
-			<roles>
-				<role>committer</role>
-			</roles>
-		</developer>
-	</developers>
+  <properties>
+    <zookeeper.version>3.4.5</zookeeper.version>
+    <log4j.version>1.2.15</log4j.version>
+    <jersey.version>1.14</jersey.version>
+    <lucene.version>4.3.0</lucene.version>
+    <junit.version>4.7</junit.version>
+    <slf4j.version>1.6.1</slf4j.version>
+    <commons-cli.version>1.2</commons-cli.version>
+    <concurrentlinkedhashmap-lru.version>1.3.2</concurrentlinkedhashmap-lru.version>
+    <jline.version>2.10</jline.version>
+    <guava.version>14.0</guava.version>
+    <metrics.version>2.2.0</metrics.version>
+    <metrics-ganglia.version>2.2.0</metrics-ganglia.version>
+    <metrics-graphite.version>2.2.0</metrics-graphite.version>
+    <mockito.version>1.9.0</mockito.version>
+    <json.version>20090211</json.version>
+    <mrunit.version>0.9.0-incubating</mrunit.version>
+    <httpclient.version>4.1.3</httpclient.version>
+    <servlet-api.version>2.5</servlet-api.version>
+  </properties>
 
-	<contributors>
-	</contributors>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.7</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
-	<issueManagement>
-		<system>JIRA</system>
-		<url>https://issues.apache.org/jira/browse/BLUR</url>
-	</issueManagement>
+  <build>
+    <plugins>
+    </plugins>
 
-	<mailingLists>
-		<mailingList>
-			<name>User</name>
-			<subscribe>blur-user-subscribe@incubator.apache.org</subscribe>
-			<unsubscribe>blur-user-unsubscribe@incubator.apache.org</unsubscribe>
-			<post>blur-user@incubator.apache.org</post>
-			<archive>http://mail-archives.apache.org/mod_mbox/incubator-blur-user/</archive>
-			<otherArchives>
-				<otherArchive>http://markmail.org/browse/org.apache.incubator.blur-user</otherArchive>
-			</otherArchives>
-		</mailingList>
-		<mailingList>
-			<name>Dev</name>
-			<subscribe>blur-dev-subscribe@incubator.apache.org</subscribe>
-			<unsubscribe>blur-dev-unsubscribe@incubator.apache.org</unsubscribe>
-			<post>blur-dev@incubator.apache.org</post>
-			<archive>http://mail-archives.apache.org/mod_mbox/incubator-blur-dev/</archive>
-			<otherArchives>
-				<otherArchive>http://markmail.org/browse/org.apache.incubator.blur-dev</otherArchive>
-			</otherArchives>
-		</mailingList>
-		<mailingList>
-			<name>Commits</name>
-			<subscribe>blur-commits-subscribe@incubator.apache.org</subscribe>
-			<unsubscribe>blur-commits-unsubscribe@incubator.apache.org</unsubscribe>
-			<post>blur-commits@incubator.apache.org</post>
-			<archive>http://mail-archives.apache.org/mod_mbox/incubator-blur-commits/</archive>
-			<otherArchives>
-				<otherArchive>http://markmail.org/browse/org.apache.incubator.blur-commits</otherArchive>
-			</otherArchives>
-		</mailingList>
-	</mailingLists>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <argLine>-XX:+UseConcMarkSweepGC</argLine>
+            <reuseForks>false</reuseForks>
+            <systemPropertyVariables>
+              <blur.tmp.dir>${project.build.directory}/target/tmp</blur.tmp.dir>
+            </systemPropertyVariables>
+          </configuration>
+        </plugin>
+        <!-- Ignore/Execute plugin execution -->
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <configuration>
+            <descriptors>
+              <descriptor>src/assemble/bin.xml</descriptor>
+            </descriptors>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <!-- copy-dependency plugin -->
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <versionRange>[1.0.0,)</versionRange>
+                    <goals>
+                      <goal>copy-dependencies</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 
-	<scm>
-		<connection>scm:git:http://git-wip-us.apache.org/repos/asf/incubator-blur.git</connection>
-		<developerConnection>scm:git:https://git-wip-us.apache.org/repos/asf/incubator-blur.git</developerConnection>
-		<!--tag>HEAD</tag -->
-		<url>https://git-wip-us.apache.org/repos/asf?p=incubator-blur.git;a=summary</url>
-	</scm>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <!--stylesheetfile>${basedir}/src/main/javadoc/stylesheet.css</stylesheetfile -->
+          <show>public</show>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
 
-	<properties>
-		<zookeeper.version>3.4.5</zookeeper.version>
-		<log4j.version>1.2.15</log4j.version>
-		<jersey.version>1.14</jersey.version>
-		<lucene.version>4.3.0</lucene.version>
-		<junit.version>4.7</junit.version>
-		<slf4j.version>1.6.1</slf4j.version>
-		<commons-cli.version>1.2</commons-cli.version>
-		<concurrentlinkedhashmap-lru.version>1.3.2</concurrentlinkedhashmap-lru.version>
-		<jline.version>2.10</jline.version>
-		<guava.version>14.0</guava.version>
-		<metrics.version>2.2.0</metrics.version>
-		<metrics-ganglia.version>2.2.0</metrics-ganglia.version>
-		<metrics-graphite.version>2.2.0</metrics-graphite.version>
-		<mockito.version>1.9.0</mockito.version>
-		<json.version>20090211</json.version>
-		<mrunit.version>0.9.0-incubating</mrunit.version>
-		<httpclient.version>4.1.3</httpclient.version>
-		<servlet-api.version>2.5</servlet-api.version>
-	</properties>
+  <profiles>
+    <profile>
+      <id>hadoop-1x</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <hadoop.version>1.2.1</hadoop.version>
+      </properties>
+    </profile>
 
-	<modules>
-		<module>blur-store</module>
-		<module>blur-util</module>
-	</modules>
-
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>libdir</id>
-			<url>file://${basedir}/../lib</url>
-		</repository>
-		<repository>
-			<id>cloudera</id>
-			<url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
-		</repository>
-	</repositories>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.rat</groupId>
-				<artifactId>apache-rat-plugin</artifactId>
-				<version>0.10</version>
-				<configuration>
-					<excludes>
-						<exclude>LICENSE</exclude>
-						<exclude>CHANGES.txt</exclude>
-						<exclude>DISCLAIMER</exclude>
-						<exclude>NOTICE</exclude>
-						<exclude>README</exclude>
-						<exclude>**/README.textile</exclude>
-						<exclude>**/.classpath</exclude>
-						<exclude>**/.project</exclude>
-						<exclude>**/.settings/**</exclude>
-						<exclude>**/target/**</exclude>
-						
-						<!-- These javascript libs are accounted for in the 
-						LICENSE-src file in distribution/src/main/resources -->
-						<exclude>contrib/blur-console/blur-admin/vendor/assets/javascripts/d3/**</exclude>
-						<exclude>contrib/blur-console/blur-admin/vendor/assets/javascripts/backbone/**</exclude>
-						<exclude>contrib/blur-console/blur-admin/vendor/assets/javascripts/flot/**</exclude>
-						<exclude>contrib/blur-console/blur-admin/vendor/assets/javascripts/jquery.*.js</exclude>
-						<exclude>contrib/blur-console/blur-admin/vendor/assets/javascripts/modernizr.js</exclude>
-						<exclude>contrib/blur-console/blur-admin/vendor/assets/javascripts/sorttable.js</exclude>
-						<exclude>contrib/blur-console/blur-admin/vendor/assets/javascripts/underscore.js</exclude>
-						<exclude>contrib/blur-console/blur-admin/vendor/assets/javascripts/datatables.fnReloadAjax.js</exclude>
-						
-						<!-- These css libs are accounted for in the LICENSE file -->
-						<exclude>contrib/blur-console/blur-admin/vendor/assets/stylesheets/jquery*.css</exclude>
-						<exclude>contrib/blur-console/blur-admin/vendor/assets/stylesheets/ui.dynatree.css</exclude>
-						
-						<!-- Ruby gems -->
-						<exclude>contrib/blur-console/blur-admin/vendor/gems/cancan/**</exclude>
-						
-						<!-- Generated during the rail build process in the blur-admin project -->
-						<exclude>contrib/blur-console/blur-admin/Gemfile.lock</exclude>
-						
-						<!-- Contains a list of english words that are used for load testing, adding a header 
-						would make the simple parsers more complex -->
-						<exclude>**/src/main/resources/org/apache/blur/thrift/util/words.txt</exclude>
-						
-						<!-- These javascript libs are accounted for in the 
-						LICENSE file in root of the project -->
-						<exclude>**/src/main/webapp/js/d3.v2.js</exclude>
-						<exclude>**/src/main/webapp/js/d3.v2.min.js</exclude>
-						
-						<!-- License and Notice files for Blur -->
-						<exclude>**/src/main/resources/license-notes.txt</exclude>
-						<exclude>**/src/main/resources/NOTICE-bin.base.txt</exclude>
-						<exclude>**/src/main/resources/NOTICE-bin.txt</exclude>
-						
-						<!-- Default configuration files used by Blur -->
-						<exclude>**/src/main/scripts/conf/controllers</exclude>
-						<exclude>**/src/main/scripts/conf/default_zoo.cfg</exclude>
-						<exclude>**/src/main/scripts/conf/shards</exclude>
-						<exclude>**/src/main/scripts/conf/zookeepers</exclude>
-						
-						<!-- Generate by Thrift -->
-						<exclude>**/src/main/scripts/interface/gen-html/Blur.html</exclude>
-						<exclude>**/src/main/scripts/interface/gen-html/index.html</exclude>
-						
-						<!-- Used to create empty directories in git -->
-                        <exclude>**/.empty</exclude>
-					</excludes>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>check</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<configuration>
-						<argLine>-XX:+UseConcMarkSweepGC</argLine>
-						<reuseForks>false</reuseForks>
-						<systemPropertyVariables>
-							<blur.tmp.dir>${project.build.directory}/target/tmp</blur.tmp.dir>
-						</systemPropertyVariables>
-					</configuration>
-				</plugin>
-				<!-- Ignore/Execute plugin execution -->
-				<plugin>
-					<artifactId>maven-assembly-plugin</artifactId>
-					<configuration>
-						<descriptors>
-							<descriptor>src/assemble/bin.xml</descriptor>
-						</descriptors>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<!-- copy-dependency plugin -->
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-dependency-plugin</artifactId>
-										<versionRange>[1.0.0,)</versionRange>
-										<goals>
-											<goal>copy-dependencies</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.jasig.maven</groupId>
-					<artifactId>maven-notice-plugin</artifactId>
-					<configuration>
-						<noticeTemplate>./resources/NOTICE.template</noticeTemplate>
-						<licenseMapping>
-							<param>./resources/license-mappings.xml</param>
-						</licenseMapping>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<!--stylesheetfile>${basedir}/src/main/javadoc/stylesheet.css</stylesheetfile -->
-					<show>public</show>
-				</configuration>
-			</plugin>
-		</plugins>
-	</reporting>
-
-	<profiles>
-		<profile>
-			<id>hadoop-1x</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<hadoop.version>1.2.1</hadoop.version>
-			</properties>
-		</profile>
-
-		<profile>
-			<id>cdh4-mr1</id>
-			<properties>
-				<hadoop.version>2.0.0-mr1-cdh4.3.0</hadoop.version>
-			</properties>
-		</profile>
-	</profiles>
+    <profile>
+      <id>cdh4-mr1</id>
+      <properties>
+        <hadoop.version>2.0.0-mr1-cdh4.3.0</hadoop.version>
+      </properties>
+    </profile>
+  </profiles>
 </project>
