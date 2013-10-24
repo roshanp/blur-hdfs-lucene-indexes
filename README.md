@@ -1,2 +1,0 @@
-blur-hdfs-lucene-indexes
-========================
