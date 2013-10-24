@@ -41,6 +41,7 @@ under the License.
   </modules>
 
   <properties>
+  	<hadoop.version>1.2.1</hadoop.version>
     <zookeeper.version>3.4.5</zookeeper.version>
     <log4j.version>1.2.15</log4j.version>
     <jersey.version>1.14</jersey.version>
@@ -87,73 +88,7 @@ under the License.
             </systemPropertyVariables>
           </configuration>
         </plugin>
-        <!-- Ignore/Execute plugin execution -->
-        <plugin>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <configuration>
-            <descriptors>
-              <descriptor>src/assemble/bin.xml</descriptor>
-            </descriptors>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <!-- copy-dependency plugin -->
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <versionRange>[1.0.0,)</versionRange>
-                    <goals>
-                      <goal>copy-dependencies</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
       </plugins>
     </pluginManagement>
   </build>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <configuration>
-          <!--stylesheetfile>${basedir}/src/main/javadoc/stylesheet.css</stylesheetfile -->
-          <show>public</show>
-        </configuration>
-      </plugin>
-    </plugins>
-  </reporting>
-
-  <profiles>
-    <profile>
-      <id>hadoop-1x</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
-        <hadoop.version>1.2.1</hadoop.version>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>cdh4-mr1</id>
-      <properties>
-        <hadoop.version>2.0.0-mr1-cdh4.3.0</hadoop.version>
-      </properties>
-    </profile>
-  </profiles>
 </project>

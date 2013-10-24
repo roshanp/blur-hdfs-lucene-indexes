@@ -136,14 +136,6 @@ under the License.
 		</dependency>
 	</dependencies>
 
-
-	<repositories>
-		<repository>
-			<id>libdir</id>
-			<url>file://${basedir}/../lib</url>
-		</repository>
-	</repositories>
-
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -198,16 +190,6 @@ under the License.
 				<dependency>
 					<groupId>org.apache.hadoop</groupId>
 					<artifactId>hadoop-core</artifactId>
-					<version>${hadoop.version}</version>
-				</dependency>
-			</dependencies>
-		</profile>
-		<profile>
-			<id>cdh4-mr1</id>
-			<dependencies>
-				<dependency>
-					<groupId>org.apache.hadoop</groupId>
-					<artifactId>hadoop-client</artifactId>
 					<version>${hadoop.version}</version>
 				</dependency>
 			</dependencies>
