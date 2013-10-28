@@ -36,6 +36,9 @@ import com.yammer.metrics.core.Meter;
 import com.yammer.metrics.core.MetricName;
 
 public class BufferStore {
+  
+  public static final int _1024_DEFAULT_SIZE = 8192;
+  public static final int _8192_DEFAULT_SIZE = 8192;
 
   private static final Log LOG = LogFactory.getLog(BufferStore.class);
 
@@ -72,6 +75,9 @@ public class BufferStore {
   }
 
   public static byte[] takeBuffer(int bufferSize) {
+    if(_1024 == null || _8192 == null) {
+      init(_1024_DEFAULT_SIZE, _8192_DEFAULT_SIZE);
+    } 
     switch (bufferSize) {
     case 1024:
       return newBuffer1024(_1024.poll());
